@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 http://maven.apache.org/xsd/settings-1.2.0.xsd">
+  <mirrors>
+    <mirror>
+      <id>sponge-repo-new</id>
+      <mirrorOf>sponge-maven-repo</mirrorOf>
+      <url>https://repo.spongepowered.org/repository/maven-public/</url>
+    </mirror>
+    <mirror>
+      <id>dmulloy2-repo-new</id>
+      <mirrorOf>dmulloy2-repo</mirrorOf>
+      <url>https://repo.dmulloy2.net/nexus/repository/public/</url>
+    </mirror>
+  </mirrors>
+</settings>

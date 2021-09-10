@@ -1,0 +1,11 @@
+main: io.github.jackzheng870.tofubot.TofubotPlugin
+name: ${project.name}
+version: ${project.version}
+description: ${project.description}
+api-version: 1.16
+author: Jack Zheng
+website: ${project.url}
+softdepend:
+  - MiraiMC
+  - McQQBot
+  - UltimateChat

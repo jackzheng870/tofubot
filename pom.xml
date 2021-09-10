@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>io.github.jackzheng870</groupId>
+  <artifactId>tofubot</artifactId>
+  <version>0.1.0</version>
+  <packaging>jar</packaging>
+
+  <name>Tofubot</name>
+  <description>A Tencent QQ bot made for the Tofu Minecraft server.</description>
+  <url>https://github.com/jackzheng870/tofubot</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>spigot-repo</id>
+      <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+    </repository>
+    <repository>
+      <id>ultimatechat-repo</id>
+      <url>https://raw.githubusercontent.com/FabioZumbi12/UltimateChat/mvn-repo/</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>spigot-api</artifactId>
+      <version>1.16.5-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.github.dreamvoid</groupId>
+      <artifactId>MiraiMC</artifactId>
+      <version>1.4</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Clone the source code from https://gitee.com/msg_dw/mc-qqbot
+      and run `./gradlew install` to install McQQBot as a dependency. -->
+    <dependency>
+      <groupId>pro.sandiao</groupId>
+      <artifactId>McQQBot</artifactId>
+      <version>2.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.vdurmont</groupId>
+      <artifactId>emoji-java</artifactId>
+      <version>5.1.1</version>
+    </dependency>
+    <!-- Some of UltimateChat's dependencies need to be built manually
+      and some need to be downloaded from its GitHub repository:
+      https://github.com/FabioZumbi12/UltimateChat -->
+    <dependency>
+      <groupId>br.net.fabiozumbi12.UltimateChat</groupId>
+      <artifactId>UltimateChat-Spigot</artifactId>
+      <version>1.9.1</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>plugin.yml</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.4</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <createDependencyReducedPom>false</createDependencyReducedPom>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
